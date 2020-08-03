@@ -1,8 +1,9 @@
 <h1>Bem-vindo ao Task List!</h1>
 <h3>Sua lista de tarefas:</h3>
 
-<!-- Isso é um comentário: note que, no exemplo abaixo, não queremosimprimir a iteração (each), somente a descrição das tarefas -->
-
 <% @tasks.each do |task| %>
   <%= task.description %>
+  <%= link_to 'Editar', edit_task_path(task) %>
+  <%= link_to 'Apagar', task_path(task), method: :delete,
+      data: {confirm: 'Quer apagar esta tarefa?' } %>
 <% end %>
